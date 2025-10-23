@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('servicos-container');
 
-    // Função para buscar e exibir os serviços
+    
     async function carregarServicos() {
         try {
-            // 1. Faz a requisição para a API do Node.js
             const response = await fetch('/api/servicos');
             const servicos = await response.json();
 
-            // Limpa o container antes de adicionar os novos dados
             container.innerHTML = '<h2>Escolha seu serviço e agende</h2>'; 
             
-            // 2. Itera sobre os serviços e cria os elementos HTML
             servicos.forEach(servico => {
                 const card = document.createElement('div');
                 card.className = 'servico-card'; // Para estilizar no CSS

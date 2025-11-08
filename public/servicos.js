@@ -1,35 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('servicos-container');
-
     
     async function carregarServicos() {
         try {
             const response = await fetch('/api/servicos');
             const servicos = await response.json();
 
-            container.innerHTML = '<h2>Escolha seu serviço e agende</h2>'; 
+            container.innerHTML = '';
             
             servicos.forEach(servico => {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'col-lg-4 col-md-6 mb-4';
+
                 const card = document.createElement('div');
-                card.className = 'servico-card'; // Para estilizar no CSS
+                card.className = 'card h-100 text-center servico-card-custom'; 
                 card.innerHTML = `
-                    <h3>${servico.nome}</h3>
-                    <p>${servico.duracao_minutos} minutos</p>
-                    <p class="preco">R$ ${parseFloat(servico.preco).toFixed(2).replace('.', ',')}</p>
-                    <button class="btn-agendar" data-servico-id="${servico.id_servico}">
-                        Agendar
-                    </button>
+                    <div class="card-body">
+                        <h5 class="card-title">${servico.nome}</h5>
+                        <p class="card-text text-muted">${servico.duracao_minutos} minutos</p>
+                        <p class="h4 fw-bold mb-3">R$ ${parseFloat(servico.preco).toFixed(2).replace('.', ',')}</p>
+                        <button class="btn btn-dark btn-agendar" data-servico-id="${servico.id_servico}">
+                            Agendar
+                        </button>
+                    </div>
                 `;
-                container.appendChild(card);
+                
+                colDiv.appendChild(card);
+                container.appendChild(colDiv); 
             });
 
         } catch (error) {
             console.error('Erro ao carregar serviços:', error);
-            container.innerHTML = '<h2>Erro ao conectar com o servidor. Tente novamente.</h2>';
+            container.innerHTML = '<p class="text-danger">Erro ao conectar com o servidor ou processar dados.</p>';
         }
     }
 
     carregarServicos();
 
-    // *Futuro: Adicionar evento de clique nos botões Agendar*
+    // Adicionar evento de clique nos botões Agendar
+    
 });

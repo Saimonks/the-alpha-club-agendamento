@@ -1,20 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços | The Alpha Club</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Nossos Serviços</h1>
-    </header>
+<header>
+    <div class="container-fluid">
+        <nav class="navbar fixed-top d-flex justify-content-center align-items-center">
+            <a href="index.html" class="">
+                <img id="logo" src="1759250763455.png" class="rounded float-start" alt="The Alpha Club Logo">
+            </a>
+            <div class="ms-auto d-flex align-items-start pe-5 container-links-navbar" id="links-navbar">
+                <a href="index.html"> HOME </a>
+                <a href="login.html" class="btn btn-outline-secondary align-self-start ms-4" id="login">LOGIN</a>
+            </div>
+        </nav> 
+    </div>
+</header>
+<main class="servicos-area container py-5">
+    <h1 class="text-center mb-5 display-4 fw-bold">Nossos Serviços Exclusivos</h1>
+        
+    <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+            <input type="text" class="form-control" placeholder="Buscar Serviço...">
+        </div>
+    </div>
 
-    <main id="servicos-container">
-        <h2>Carregando serviços...</h2> 
-    </main>
+    <div class="row" id="servicos-container">
+        <div class="col-12 text-center py-5">
+            <p class="lead">Carregando serviços da The Alpha Club...</p>
+        </div>
+    </div>
 
-    <script src="servicos.js"></script> 
-</body>
+</main>
+
+    <div class="modal fade" id="agendamentoModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Agendar: <span id="servico-selecionado-nome"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <p class="fw-bold">Próximo Passo: Escolha a Data</p>
+                    
+                    <section class="mb-3">
+                        <label for="data-escolhida" class="form-label">Data Desejada:</label>
+                        <input type="date" id="data-escolhida" class="form-control" required>
+                        <small class="form-text text-muted">Apenas datas futuras serão permitidas.</small>
+                    </section>
+                    
+                    <section class="mb-3" id="seletor-barbeiro">
+                        <p class="text-muted">Por enquanto, o sistema agenda com o Barbeiro principal.</p>
+                    </section>
+
+                    <section id="horarios-disponiveis-container" class="mt-4">
+                        <h6 class="mb-3">Horários Livres:</h6>
+                        <div id="horarios-lista" class="d-flex flex-wrap gap-2">
+                            <p class="text-warning">Selecione uma data acima...</p>
+                        </div>
+                    </section>
+                </div>
+                
+                <div class="modal-footer justify-content-start">
+                    <form id="form-agendamento-final" class="w-100" style="display: none;">
+                        <h6 class="mt-3 mb-3">3. Confirme Seus Dados:</h6>
+                        <input type="text" id="nome-cliente" class="form-control mb-2" placeholder="Seu Nome Completo" required>
+                        <input type="tel" id="tel-cliente" class="form-control mb-3" placeholder="Seu Telefone" required>
+                        <button type="submit" class="btn btn-dark w-100">CONFIRMAR AGENDAMENTO</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="servicos.js"></script>
+    <script src="modal-agendamento.js"></script> </body>
 </html>

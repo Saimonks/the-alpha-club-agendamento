@@ -3,32 +3,265 @@
 /* (Reset, Tipografia, Cores, Variáveis CSS)                */
 /************************************************************/
 
+/* Paleta de Cores e Tipografia (Tema ALPHA CLUB) */
+:root {
+    --cor-principal: #000000; /* Preto */
+    --cor-secundaria: #ffffff; /* Branco */
+    --cor-fundo-claro: #f5f5f5; /* Cinza claro */
+    --cor-fundo-escuro: #1a1a1a; /* Cinza escuro */
+    --cor-texto: #162938; /* Preto sutil para textos */
+}
+
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto);
+    min-height: 100vh;
+}
+
+#logo {
+    width: 160px;
+    height: auto;
+    padding: 0px;
+    padding-top: 2px;
+    margin-top: -5px;
+}
+
+a {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--cor-texto); 
+}
+
+#login,
+#cadastrar,
+#entrar { 
+    color: var(--cor-principal);
+    border-color: var(--cor-principal);
+}
+
+#login:hover,
+#cadastrar:hover,
+#entrar:hover,
+.btn-dark:hover,
+.btn-outline-secondary:hover,
+.btn-outline-dark:hover { 
+    background-color: var(--cor-principal) !important;
+    color: var(--cor-secundaria) !important;
+    border-color: var(--cor-principal) !important;
+}
+
+#login {
+    margin-top: -10px;
+    width: 100px;
+}
+
+.container-links-navbar {
+    margin-top: -20px;
+    gap: 50px; 
+}
+
 
 /************************************************************/
-/* 2. ESTILOS DE COMPONENTES REUTILIZÁVEIS                  */
-/* (Botões, Inputs, Cards de Serviço, Links de Navegação)   */
+/* 2. ESTILOS DA PÁGINA HOME (index.html)                   */
 /************************************************************/
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 85vh;
+    justify-content: flex-start; 
+}
+
+#inicial {
+    min-height: 50vh;
+    background-color: var(--cor-fundo-claro); 
+    padding-top: 150px;
+}
+
+#diferenciais .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#chamada-secundaria {
+    background-color: #e9ecef;
+}
 
 
 /************************************************************/
-/* 3. ESTILOS DA PÁGINA HOME (index.html)                   */
-/* (Banner de boas-vindas, layout da página inicial)        */
+/* 3. ESTILOS DAS PÁGINAS DE FORMULÁRIO (LOGIN e CADASTRO)  */
 /************************************************************/
+
+.pagina-formulario {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--cor-fundo-claro);
+}
+
+.container-formulario {
+    width: 500px;
+    padding: 40px;
+    background: var(--cor-secundaria);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+}
+
+.ENTRAR h2,
+.CADASTRAR h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: var(--cor-principal);
+}
+
+.caixa-input{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--cor-texto);
+    margin: 30px 0;
+}
+
+.caixa-input input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--cor-principal);
+    font-weight: 600;
+    padding: 0 35px 0 35px;
+}
+
+.caixa-input .icon{
+    position: absolute;
+    left: 8px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: var(--cor-texto);
+} 
+
+.caixa-input label{
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: var(--cor-texto);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.caixa-input input:focus ~ label,
+.caixa-input input:valid ~ label {
+    top: -15px;
+    font-size: 0.8em;
+    transform: translateY(0%);
+    color: var(--cor-principal);
+}
+
+.registrar{
+    font-size: 0.9em;
+    color: var(--cor-principal);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.registrar p a {
+    color: #0000ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.registrar p a:hover {
+    text-decoration: underline;
+}
 
 
 /************************************************************/
-/* 4. ESTILOS DE LOGIN E CADASTRO                           */
-/* (Caixa centralizada de login, formulários)               */
+/* 4. ESTILOS DA PÁGINA DE SERVIÇOS E MODAL AGENDAMENTO     */
 /************************************************************/
+
+.servicos-area {
+    padding-top: 100px;
+}
+
+.servico-card-custom {
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    transition: transform 0.2s;
+}
+
+.servico-card-custom:hover {
+    transform: translateY(-3px);
+}
+
+.btn-agendar-servico {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+}
+
+#modal-agendamento .modal-content {
+    border-radius: 15px;
+}
+
+#seletor-data-barbeiro {
+    padding: 15px;
+    background-color: var(--cor-fundo-claro);
+    border-radius: 10px;
+}
+
+#horarios-disponiveis-modal button {
+    margin: 5px;
+}
 
 
 /************************************************************/
-/* 5. ESTILOS DA PÁGINA DE SERVIÇOS E MODAL AGENDAMENTO     */
-/* (Layout da lista de serviços, aparência do pop-up/modal) */
+/* 5. ESTILOS DA ÁREA ADMIN (Painel do Barbeiro)            */
 /************************************************************/
+
+.admin-dashboard-container {
+    padding: 20px;
+    padding-top: 100px;
+    background-color: var(--cor-fundo-claro);
+}
+
+.agendamento-card-admin {
+    border-left: 5px solid var(--cor-principal);
+    margin-bottom: 10px;
+    background-color: var(--cor-secundaria);
+}
 
 
 /************************************************************/
-/* 6. ESTILOS DA ÁREA ADMIN (Painel do Barbeiro)            */
-/* (Layout do Dashboard, lista de agendamentos do dia)      */
+/* 6. RESPONSIVIDADE (Ajustes para Telas Pequenas)           */
 /************************************************************/
+
+@media (max-width: 768px) {
+    .container-links-navbar a {
+        display: none !important; 
+    }
+    #logo {
+        width: 120px;
+    }
+    #login {
+        display: block !important;
+        margin-top: 0px !important;
+    }
+    #inicial {
+        padding-top: 100px;
+    }
+}

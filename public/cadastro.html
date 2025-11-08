@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Barbeatia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container-fluid">
+        <nav class="navbar fixed-top d-flex justify-content-center align-items-center">
+            <a href="index.html" class="">
+                <img id="logo" src="1759250763455.png" class="rounded float-start" >
+            </a>
+            <div class="ms-auto d-flex align-items-start pe-5 container-links-navbar" id="links-navbar">
+                <a href="index.html"> HOME </a>
+            </div>
+        </nav> 
+    </div>
+</header>
+
+<main>
+<div class="pagina-formulario">
+    <div class="container-formulario">
+        <div class="CADASTRAR"> 
+            <h2> CADASTRAR </h2>
+            <form id="form-cadastro">
+                
+                <div class="caixa-input">
+                    <span class="icon"><ion-icon name="people"></ion-icon></span>
+                    <input type="text" name="nome" id="nome-cadastro" required>
+                    <label for="nome-cadastro">Usuário</label>
+                </div>
+                
+                <div class="caixa-input">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" id="email-cadastro" required>
+                    <label for="email-cadastro">Email</label>
+                </div>
+                
+                <div class="caixa-input">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span> 
+                    <input type="tel" name="telefone" id="telefone-cadastro" pattern="[0-9+()\- ]{10,20}" required>
+                    <label for="telefone-cadastro">Telefone</label>
+                </div>
+                
+                <div class="caixa-input">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="senha" id="senha-cadastro" required>
+                    <label for="senha-cadastro">Senha</label>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class=" btn btn-outline-secondary" id="btn-cadastrar">CADASTRAR</button>
+                </div> 
+                
+                <div class="registrar">
+                    <p> Já possui uma conta? <a href="login.html" class="link-entrar"> Entrar </a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</main>
+</body>
+</html>

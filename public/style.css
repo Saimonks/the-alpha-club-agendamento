@@ -168,7 +168,7 @@ main {
 
 .caixa-input input:focus ~ label,
 .caixa-input input:valid ~ label {
-    top: -15px;
+    top: -10px;
     font-size: 0.8em;
     transform: translateY(0%);
     color: var(--cor-principal);
@@ -180,6 +180,8 @@ main {
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
+    position: relative;
+    top: 20px
 }
 .registrar p a {
     color: #0000ff;
@@ -188,6 +190,21 @@ main {
 }
 .registrar p a:hover {
     text-decoration: underline;
+}
+
+#btn-cadastrar {
+  position: relative;
+  top: 20px; /* Move o botão 10px pra baixo */
+  width: 70%;
+}
+
+
+#btn-entrar{
+position: relative;
+top: 20px;
+width: 70%;
+
+
 }
 
 
@@ -264,4 +281,29 @@ main {
     #inicial {
         padding-top: 100px;
     }
+}
+
+/*  FORMATAÇÃO DAS VALIDAÇÕES    */
+
+.caixa-input a{
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    font-size: 13px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+}
+
+.caixa-input.error a{
+  width: 103%;
+  color: #ff3b25;
+  visibility: visible;
+  opacity: 1;
+  
+}
+.caixa-input.error .mensag{
+bottom: -40px;
+
 }

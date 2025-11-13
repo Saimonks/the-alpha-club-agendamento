@@ -245,6 +245,24 @@ width: 70%;
     margin: 5px;
 }
 
+#horarios-lista {
+    /* Adiciona alinhamento centralizado para quando a última linha estiver incompleta */
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+    /* Garante que o container tenha um padding interno */
+    padding: 10px 0; 
+}
+
+.slot-horario {
+    /* O Bootstrap já está dando o estilo, mas podemos adicionar: */
+    width: 75px; /* Define uma largura fixa para que todos ocupem o mesmo espaço */
+    height: 35px; /* Define uma altura padrão */
+    text-align: center;
+    /* Garante que as bordas sejam suaves */
+    border-radius: 5px; 
+    /* Adiciona as classes que você usou no JS para as margens */
+    margin: 5px; /* O 'gap-2' já cuida da maioria, mas margin ajuda */
+}
+
 
 /************************************************************/
 /* 5. ESTILOS DA ÁREA ADMIN (Painel do Barbeiro)            */

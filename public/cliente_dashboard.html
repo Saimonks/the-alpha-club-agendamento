@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta | The Alpha Club</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar fixed-top d-flex justify-content-center align-items-center>
+                <a href="#" class="">
+                    <img id="logo" src="1759250763455.png" class="rounded float-start" >
+                </a>
+                <div class="ms-auto d-flex align-items-start pe-5 container-links-navbar" id="links-navbar">
+                    <a href="servicos.html" class="me-4"> NOVO AGENDAMENTO </a>
+                    <button class="btn btn-dark ms-2" id="btn-logout">SAIR</button>
+                </div>
+            </nav> 
+        </div>
+    </header>
+
+    <main class="dashboard-container container py-5">
+        <h1 class="display-5 fw-bold mt-5 mb-4">Bem-vindo, <span id="cliente-nome">Cliente Teste</span></h1>
+        
+        <section class="mb-5 p-4 border rounded shadow-sm">
+            <h2 class="h4 mb-3">📅 Seus Próximos Cortes</h2>
+            <div id="lista-agendamentos-futuros" class="row">
+                <p class="text-muted">Carregando seus agendamentos...</p>
+            </div>
+            <a href="servicos.html" class="btn btn-dark mt-4">Agendar Novo Serviço</a>
+        </section>
+
+        <section class="p-4 border rounded shadow-sm">
+            <h2 class="h4 mb-3">📋 Histórico de Serviços</h2>
+            <div id="lista-historico" class="row">
+                <p class="text-muted">Nenhum serviço anterior encontrado.</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cliente_dashboard.js"></script> </body>
+</html>

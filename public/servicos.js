@@ -19,8 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h5 class="card-title">${servico.nome}</h5>
                         <p class="card-text text-muted">${servico.duracao_minutos} minutos</p>
                         <p class="h4 fw-bold mb-3">R$ ${parseFloat(servico.preco).toFixed(2).replace('.', ',')}</p>
-                        <button class="btn btn-dark btn-agendar" data-servico-id="${servico.id_servico}">
-                            Agendar
+                        
+                        <button class="btn btn-dark btn-adicionar-carrinho" 
+                                data-servico-id="${servico.id_servico}" 
+                                data-servico-nome="${servico.nome}" 
+                                data-servico-preco="${servico.preco}"
+                                data-servico-duracao="${servico.duracao_minutos}">
+                            Adicionar
                         </button>
                     </div>
                 `;
@@ -34,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             container.innerHTML = '<p class="text-danger">Erro ao conectar com o servidor ou processar dados.</p>';
         }
     }
+
+    
 
     carregarServicos();
 

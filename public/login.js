@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok && response.status === 200) {
                     const userId = data.userId; // ID do usuário retornado pela API
+                    const jwtToken = data.token; // TOKEN JWT retornado pela API
 
-                    localStorage.setItem('alphaUserId', userId);
+                    // Armazenar ambos no localStorage
+                    localStorage.setItem('alphaUserId', userId); 
+                    localStorage.setItem('alphaToken', jwtToken); 
 
                     alert('Login realizado com sucesso!');
                     
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                 } else {
-                    alert(`Falha no Login: ${data.error}`);
+                    alert(`Falha no Login: ${data.error || 'Erro desconhecido.'}`);
                 }
 
             } catch (error) {

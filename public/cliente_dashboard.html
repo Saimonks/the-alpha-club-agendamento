@@ -3,46 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Conta | The Alpha Club</title>
+    <title>Dashboard do Cliente | The Alpha Club</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
         <div class="container-fluid">
-            <nav class="navbar fixed-top d-flex justify-content-center align-items-center>
-                <a href="#" class="">
-                    <img id="logo" src="1759250763455.png" class="rounded float-start" >
+            <nav class="navbar d-flex justify-content-between align-items-center px-4 py-3">
+                <a href="index.html" class="p-0">
+                    <img id="logo" src="1759250763455.png" class="rounded float-start" alt="The Alpha Club Logo">
                 </a>
-                <div class="ms-auto d-flex align-items-start pe-5 container-links-navbar" id="links-navbar">
-                    <a href="servicos.html" class="me-4"> NOVO AGENDAMENTO </a>
-                    <button class="btn btn-dark ms-2" id="btn-logout">SAIR</button>
+                
+                <div class="d-flex align-items-center gap-2"> <a href="servicos.html" class="btn btn-outline-primary me-2 dashboard-header-btn">
+                        <i class="bi bi-calendar-plus"></i> <span class="d-none d-md-inline">Agendar Novo Serviço</span><span class="d-inline d-md-none">Agendar</span>
+                    </a>
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle dashboard-dropdown-btn" 
+                                type="button" 
+                                id="dropdownMenuButtonCliente" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                            <i class="bi bi-person-circle" style="font-size: 1.5em; vertical-align: middle;"></i> <span id="nome-cliente-logado">Cliente</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButtonCliente">
+                            <li><a class="dropdown-item" href="cliente_dashboard.html">Meu Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li> 
+                            <li><a class="dropdown-item" href="#" id="logout-link-cliente">Sair</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </nav> 
+            </nav>
         </div>
     </header>
 
-    <main class="dashboard-container container py-5">
-        <h1 class="display-5 fw-bold mt-5 mb-4">Bem-vindo, <span id="cliente-nome">Cliente Teste</span></h1>
+    <main class="dashboard-container container">
+        <h1 class="display-5 fw-bold mt-5 mb-4">Bem-vindo, <span id="bem-vindo-nome-cliente">Cliente</span>!</h1>
         
-        <section class="mb-5 p-4 border rounded shadow-sm">
-            <h2 class="h4 mb-3">📅 Seus Próximos Cortes</h2>
-            <div id="lista-agendamentos-futuros" class="row">
-                <p class="text-muted">Carregando seus agendamentos...</p>
-            </div>
-            <a href="servicos.html" class="btn btn-dark mt-4">Agendar Novo Serviço</a>
-        </section>
+        <div id="message-area-cliente" class="alert d-none" role="alert"></div>
 
-        <section class="p-4 border rounded shadow-sm">
-            <h2 class="h4 mb-3">📋 Histórico de Serviços</h2>
-            <div id="lista-historico" class="row">
-                <p class="text-muted">Nenhum serviço anterior encontrado.</p>
+        <ul class="nav nav-tabs mb-4" id="clienteTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="meus-agendamentos-tab" data-bs-toggle="tab" data-bs-target="#meus-agendamentos" type="button" role="tab" aria-controls="meus-agendamentos" aria-selected="true">Meus Agendamentos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="meus-dados-tab" data-bs-toggle="tab" data-bs-target="#meus-dados" type="button" role="tab" aria-controls="meus-dados" aria-selected="false">Meus Dados</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="clienteTabsContent">
+            <div class="tab-pane fade show active" id="meus-agendamentos" role="tabpanel" aria-labelledby="meus-agendamentos-tab">
+                <section class="mb-5 p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3 d-flex justify-content-between align-items-center flex-wrap"> <div class="d-flex align-items-center mb-2 mb-sm-0"> <i class="bi bi-calendar-check me-2"></i> Seus Próximos Agendamentos
+                        </div>
+                        <a href="servicos.html" class="btn btn-primary btn-sm btn-agendar-agora"> <i class="bi bi-calendar-plus"></i> <span class="d-none d-sm-inline">Agendar Agora</span><span class="d-inline d-sm-none">Agendar</span> </a>
+                    </h2>
+                    <div id="agendamentos-cliente-container" class="table-responsive"> <p class="text-muted">Carregando seus agendamentos...</p>
+                        <table class="table table-striped table-hover mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Serviço(s)</th>
+                                    <th>Data</th>
+                                    <th>Hora</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Barba Premium</td>
+                                    <td>28/11/2025</td>
+                                    <td>13:00</td>
+                                    <td>R$ 40,00</td>
+                                    <td><span class="badge bg-success">Confirmado</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-danger" title="Cancelar Agendamento"><i class="bi bi-x-circle"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Combo Alpha</td>
+                                    <td>28/11/2025</td>
+                                    <td>14:30</td>
+                                    <td>R$ 65,00</td>
+                                    <td><span class="badge bg-danger">Cancelado</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-danger" title="Agendamento Cancelado" disabled><i class="bi bi-x-circle"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                </section>
             </div>
-        </section>
-        
+
+            <div class="tab-pane fade" id="meus-dados" role="tabpanel" aria-labelledby="meus-dados-tab">
+                <section class="p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3">Minhas Informações Pessoais</h2>
+                    <form id="form-editar-meus-dados">
+                        <input type="hidden" id="cliente-id">
+                        <div class="mb-3">
+                            <label for="input-nome-cliente" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="input-nome-cliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-email-cliente" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="input-email-cliente" required disabled>
+                            <small class="form-text text-muted">O email não pode ser alterado diretamente aqui.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-telefone-cliente" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="input-telefone-cliente" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 ms-2" data-bs-toggle="modal" data-bs-target="#mudarSenhaModal">Mudar Senha</button>
+                    </form>
+                </section>
+            </div>
+        </div>
     </main>
 
+    <div class="modal fade" id="mudarSenhaModal" tabindex="-1" aria-labelledby="mudarSenhaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="mudarSenhaModalLabel">Mudar Senha</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-mudar-senha">
+                        <div class="mb-3">
+                            <label for="current-password" class="form-label">Senha Atual</label>
+                            <input type="password" class="form-control" id="current-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="new-password" class="form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="new-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-new-password" class="form-label">Confirmar Nova Senha</label>
+                            <input type="password" class="form-control" id="confirm-new-password" required>
+                        </div>
+                        <div class="modal-footer px-0 pb-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar Nova Senha</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="cliente_dashboard.js"></script> </body>
+    <script src="auth_header.js"></script> 
+    <script src="cliente_dashboard.js"></script> 
+</body>
 </html>

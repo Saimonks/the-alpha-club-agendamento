@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbeatia</title>
+    <title>Barbearia | Seu Estilo, Nossa Arte</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+
 <header>
     <div class="container-fluid">
-        <nav class="navbar fixed-top d-flex justify-content-center align-items-center">
-            <a href="#" class="">
-                <img id="logo" src="1759250763455.png" class="rounded float-start" >
+        <nav class="navbar d-flex justify-content-between align-items-center px-4 py-3">
+            <a href="index.html" class="p-0">
+                <img id="logo" src="1759250763455.png" class="rounded float-start" alt="Barbeatia Logo">
             </a>
-            <div class="ms-auto d-flex align-items-start pe-5 container-links-navbar" id="links-navbar">
-                <a href="servicos.html"> Serviços </a>
-                <a href="login.html" class="btn btn-outline-secondary align-self-start ms-4" id="login">LOGIN</a>
+            <div class="d-flex align-items-center gap-3" id="links-navbar"> 
+                <a href="servicos.html" class="me-4"> SERVIÇOS </a>
+                <a href="login.html" class="btn btn-outline-dark" id="login">LOGIN</a>
             </div>
         </nav> 
     </div>
 </header>
+
 <main>
     <section id="inicial" class="container-fluid d-flex align-items-center justify-content-center text-center">
         <div class="row">
             <div class="col-12">
                 <h1 class="display-3 fw-bold">Seu Estilo, Nossa Arte.</h1>
                 <p class="lead mt-3 mb-4">Transformamos cortes em expressões. Agende seu horário e descubra a diferença Barbeatia.</p>
-                <a href="#" class="btn btn-dark btn-lg">AGENDAR AGORA</a>
+                <a href="servicos.html" class="btn btn-dark btn-lg">AGENDAR AGORA</a>
             </div>
         </div>
     </section>
@@ -38,29 +41,29 @@
         <div class="row text-center">
             <div class="col-md-4 mb-4">
                 <div class="card p-3 h-100">
-                    <span class="d-block mb-3"><ion-icon name="location-outline" style="font-size: 3em;"></ion-icon></span>
+                    <span class="d-block mb-3"><i class="bi bi-geo-alt" style="font-size: 3em;"></i></span>
                     <h3 class="h5">Localização Privilegiada</h3>
                     <p>Fácil acesso e ambiente moderno e confortável. Venha nos visitar!</p>
                     <div id="localizacao-mapa">
-                        [MAPA AQUI]
+                        <p>[MAPA AQUI]</p>
                     </div>
                 </div>
             </div>
             
             <div class="col-md-4 mb-4">
                 <div class="card p-3 h-100">
-                    <span class="d-block mb-3"><ion-icon name="camera-outline" style="font-size: 3em;"></ion-icon></span>
+                    <span class="d-block mb-3"><i class="bi bi-camera" style="font-size: 3em;"></i></span>
                     <h3 class="h5">Nossa Galeria</h3>
                     <p>Confira alguns de nossos melhores trabalhos e veja a qualidade dos cortes Barbeatia.</p>
                     <div id="galeria-fotos">
-                        
+                        <p>[GALERIA DE FOTOS AQUI]</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 mb-4">
                 <div class="card p-3 h-100">
-                    <span class="d-block mb-3"><ion-icon name="cut-outline" style="font-size: 3em;"></ion-icon></span>
+                    <span class="d-block mb-3"><i class="bi bi-scissors" style="font-size: 3em;"></i></span>
                     <h3 class="h5">Talento e Experiência</h3>
                     <p>Nossa equipe é formada por barbeiros renomados e apaixonados pela arte de transformar.</p>
                     <a href="#" class="btn btn-outline-dark mt-3">VER BARBEIROS</a>
@@ -76,9 +79,10 @@
     </section>
     
 </main>
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="auth_header.js"></script>
 </body>
 </html>

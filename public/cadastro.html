@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="pagina-login">
 <header>
     <div class="container-fluid">
         <nav class="navbar fixed-top d-flex justify-content-center align-items-center">
@@ -22,52 +22,54 @@
     </div>
 </header>
 
-<main>
-<div class="pagina-formulario">
-    <div class="container-formulario">
-        <div class="CADASTRAR"> 
-            <h2> CADASTRAR </h2>
-            <form id="form-cadastro">
-                
-                <div class="caixa-input">
-                    <span class="icon"><ion-icon name="people"></ion-icon></span>
-                    <input type="text" name="nome" id="nome-cadastro" required>
-                    <label for="nome-cadastro">Usuário</label>
-                </div>
-                
-                <div class="caixa-input">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" name="email" id="email-cadastro" required>
-                    <label for="email-cadastro">Email</label>
-                </div>
-                
-                <div class="caixa-input">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span> 
-                    <input type="tel" name="telefone" id="telefone-cadastro" pattern="[0-9+()\- ]{10,20}" required>
-                    <label for="telefone-cadastro">Telefone</label>
-                </div>
-                
-                <div class="caixa-input">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" name="senha" id="senha-cadastro" required>
-                    <label for="senha-cadastro">Senha</label>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <button type="submit" class=" btn btn-outline-secondary" id="btn-cadastrar">CADASTRAR</button>
-                </div> 
-                
-                <div class="registrar">
-                    <p> Já possui uma conta? <a href="login.html" class="link-entrar"> Entrar </a></p>
-                </div>
-            </form>
+<main class="login-main d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 200px);">
+    <div class="pagina-formulario">
+        <div class="container-formulario">
+            <div class="CADASTRAR"> 
+                <h2> CADASTRAR </h2>
+                <form id="form-cadastro">
+                    
+                    <div class="caixa-input">
+                        <span class="icon"><ion-icon name="people"></ion-icon></span>
+                        <input type="text" name="nome" id="nome-cadastro" required>
+                        <label for="nome-cadastro">Usuário</label>
+                    </div>
+                    
+                    <div class="caixa-input">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" name="email" id="email-cadastro" required>
+                        <label for="email-cadastro">Email</label>
+                    </div>
+                    
+                    <div class="caixa-input">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span> 
+                        <input type="tel" name="telefone" id="telefone-cadastro" pattern="[0-9+()\- ]{10,20}" required>
+                        <label for="telefone-cadastro">Telefone</label>
+                    </div>
+                    
+                    <div class="caixa-input">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" name="senha" id="senha-cadastro" required>
+                        <label for="senha-cadastro">Senha</label>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button type="submit" class=" btn btn-outline-secondary" id="btn-cadastrar">CADASTRAR</button>
+                    </div> 
+                    
+                    <div class="registrar">
+                        <p> Já possui uma conta? <a href="login.html" class="link-entrar"> Entrar </a></p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="cadastro.js"></script>
 </main>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="auth_header.js"></script>
+<script src="cadastro.js"></script>
+
 </body>
 </html>

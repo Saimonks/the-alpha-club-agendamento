@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('servicos-container');
     
+    /**
+     * Busca a lista de serviços na API e renderiza os cards.
+     */
     async function carregarServicos() {
         try {
             const response = await fetch('/api/servicos');
@@ -41,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-
     carregarServicos();
 
     // Adicionar evento de clique nos botões Agendar

@@ -3,38 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin | The Alpha Club</title>
+    <title>Painel Administrativo | The Alpha Club</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <header class="admin-header fixed-top bg-dark">
-        <div class="container-fluid d-flex justify-content-between align-items-center py-2">
-            <h1 class="h4 text-light mb-0">Painel de Gestão Alpha Club</h1>
-            <button class="btn btn-outline-light" id="btn-logout-admin">SAIR</button>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar d-flex justify-content-between align-items-center px-4 py-3">
+                <a href="index.html" class="p-0">
+                    <img id="logo" src="1759250763455.png" class="rounded float-start" alt="The Alpha Club Logo">
+                </a>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" 
+                                type="button" 
+                                id="dropdownMenuButton" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                            <i class="bi bi-person-circle" style="font-size: 1.5em; vertical-align: middle;"></i> Administrador
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" id="logout-link">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
         </div>
     </header>
 
-    <main class="admin-dashboard-container container-fluid py-5">
-        <h2 class="mt-5 mb-4 display-6 fw-bold">Agenda do Dia</h2>
+    <main class="dashboard-container container py-5">
+        <h1 class="display-5 fw-bold mb-4">Painel Administrativo</h1>
         
-        <div class="mb-4 d-flex align-items-center">
-            <label for="data-agenda" class="form-label mb-0 me-3 fw-bold">Ver Data:</label>
-            <input type="date" id="data-agenda" class="form-control w-auto">
-        </div>
+        <div id="message-area" class="alert alert-info d-none" role="alert"></div>
 
-        <section id="agenda-lista" class="row">
-            <p class="lead text-muted mt-3">Carregando agenda...</p>
-        </section>
-        
-        <section id="resumo-dia" class="mt-5 p-3 bg-light border rounded">
-            <h3 class="h6">Resumo: <span id="total-agendamentos">0</span> agendamentos encontrados.</h3>
-        </section>
+        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="agenda-tab" data-bs-toggle="tab" data-bs-target="#agenda" type="button" role="tab" aria-controls="agenda" aria-selected="true">
+                    <i class="bi bi-calendar-check me-2"></i>Agenda
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="servicos-tab" data-bs-toggle="tab" data-bs-target="#servicos" type="button" role="tab" aria-controls="servicos" aria-selected="false">
+                    <i class="bi bi-gear me-2"></i>Gerenciar Serviços
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes" type="button" role="tab" aria-controls="clientes" aria-selected="false">
+                    <i class="bi bi-people me-2"></i>Clientes Cadastrados
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="renda-tab" data-bs-toggle="tab" data-bs-target="#renda" type="button" role="tab" aria-controls="renda" aria-selected="false">
+                    <i class="bi bi-currency-dollar me-2"></i>Renda Mensal
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabsContent">
+            <div class="tab-pane fade show active" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
+                <section class="p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3">🗓️ Agenda do Barbeiro</h2>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="data-agenda" class="form-label">Selecionar Data:</label>
+                            <input type="date" id="data-agenda" class="form-control">
+                        </div>
+                    </div>
+                    <div id="agenda-barbeiro-container" class="table-responsive">
+                        <p class="text-muted">Selecione uma data para ver a agenda.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="tab-pane fade" id="servicos" role="tabpanel" aria-labelledby="servicos-tab">
+                <section class="p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3">⚙️ Gerenciar Serviços</h2>
+                    <div class="mb-4">
+                        <h3 class="h5 mb-3">Adicionar Novo Serviço</h3>
+                        <form id="form-novo-servico">
+                            <div class="mb-3">
+                                <label for="servico-nome" class="form-label">Nome do Serviço</label>
+                                <input type="text" class="form-control" id="servico-nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="servico-duracao" class="form-label">Duração (minutos)</label>
+                                <input type="number" class="form-control" id="servico-duracao" min="5" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="servico-preco" class="form-label">Preço (R$)</label>
+                                <input type="number" step="0.01" class="form-control" id="servico-preco" min="0" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Adicionar Serviço</button>
+                        </form>
+                        <div id="servico-message-area" class="mt-3"></div>
+                    </div>
+
+                    <div>
+                        <h3 class="h5 mb-3">Serviços Existentes</h3>
+                        <div id="lista-servicos-container" class="table-responsive">
+                            <p class="text-muted">Carregando serviços...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="tab-pane fade" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
+                <section class="p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3">👥 Clientes Cadastrados</h2>
+                    <div id="clientes-container" class="table-responsive">
+                        <p class="text-muted">Carregando lista de clientes...</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="tab-pane fade" id="renda" role="tabpanel" aria-labelledby="renda-tab">
+                <section class="p-4 border rounded shadow-sm">
+                    <h2 class="h4 mb-3">💰 Renda Mensal</h2>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="mes-renda" class="form-label">Mês:</label>
+                            <select id="mes-renda" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ano-renda" class="form-label">Ano:</label>
+                            <select id="ano-renda" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button id="btn-buscar-renda" class="btn btn-info w-100">Buscar Renda</button>
+                        </div>
+                    </div>
+                    <div id="renda-resultado" class="alert alert-secondary mt-3" role="alert">
+                        Total de Renda para o mês selecionado: <strong>R$ <span id="valor-renda">0.00</span></strong>
+                    </div>
+                    <div id="renda-message-area" class="mt-3"></div>
+                </section>
+            </div>
+        </div>
         
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="admin_dashboard.js"></script>
+    <script src="auth_header.js"></script>
+    <script src="admin_dashboard.js"></script> 
 </body>
 </html>

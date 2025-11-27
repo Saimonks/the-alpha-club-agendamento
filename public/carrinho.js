@@ -10,7 +10,13 @@ const carrinhoTotalSpan = document.getElementById('carrinho-total');
 const btnAgendar = document.getElementById('btn-abrir-agendamento');
 const servicosContainer = document.getElementById('servicos-container');
 
-// FUNÇÃO DE RECALCULAR COM DURAÇÃO
+// ====================================================================
+// FUNÇÕES DE CÁLCULO E ATUALIZAÇÃO DO CARRINHO
+// ====================================================================
+
+/**
+ * Recalcula a duração total dos serviços no carrinho.
+ */
 function recalcularDuracao() {
     // Recalcula a Duração Total
     window.duracaoTotalCarrinho = carrinho.reduce((total, item) => {
@@ -25,7 +31,9 @@ function recalcularDuracao() {
     }
 }
 
-// Função principal para atualizar a interface (Carrinho)
+/**
+ * Função principal para atualizar a interface (Carrinho).
+ */
 function atualizarInterfaceCarrinho() {
     carrinhoItensLista.innerHTML = '';
     let total = 0;
@@ -63,8 +71,10 @@ function atualizarInterfaceCarrinho() {
     recalcularDuracao(); 
 }
 
-
-// Função para adicionar um serviço ao carrinho
+/**
+ * Função para adicionar um serviço ao carrinho.
+ * @param {object} servico - Objeto do serviço a ser adicionado.
+ */
 function adicionarAoCarrinho(servico) {
     if (!servico.duracao_minutos) {
         console.error("Erro: O serviço precisa da propriedade 'duracao_minutos'.");
@@ -83,17 +93,27 @@ function adicionarAoCarrinho(servico) {
     atualizarInterfaceCarrinho();
 }
 
-// Função para remover um serviço do carrinho
+/**
+ * Função para remover um serviço do carrinho.
+ * @param {number} index - Índice do serviço no array carrinho.
+ */
 function removerDoCarrinho(index) {
     carrinho.splice(index, 1);
     atualizarInterfaceCarrinho();
 }
 
+/**
+ * Esvazia o array do carrinho e atualiza a interface.
+ */
 function limparCarrinho() {
     carrinho = []; // Esvazia o array principal
     atualizarInterfaceCarrinho(); // Redesenha o carrinho na tela (ele vai sumir)
 }
 
+
+// ====================================================================
+// EVENT LISTENER GLOBAL E INICIALIZAÇÃO
+// ====================================================================
 
 // Event Listener para lidar com todos os cliques
 document.addEventListener('click', (event) => {
@@ -116,5 +136,5 @@ document.addEventListener('click', (event) => {
     }
 });
 
-// Inicialização
+// Inicialização: Garante que o carrinho comece no estado correto
 atualizarInterfaceCarrinho();

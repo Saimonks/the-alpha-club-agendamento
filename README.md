@@ -113,15 +113,18 @@ O foco principal é na **segurança** (uso de **JWT** e **bcryptjs**) e na **mod
 <pre>
 the-alpha-club/
 ├── node_modules/             
-├── public/                   // Arquivos estáticos do Frontend
+├── public/                    // Arquivos estáticos do Frontend
 │   ├── css/                  
 │   ├── js/                   
-│   └── index.html            // Página inicial
-├── .env                      // Variáveis de ambiente (IGNORAR NO GIT!)
+│   └── index.html             // Página inicial
+├── src
+│   ├── config
+│   │   └── db.js               // Lógica de Conexão MySQL
+│   └── middleware
+│       └── authMiddleware.js  // Middleware de autenticação JWT
+├── .env                       // Variáveis de ambiente (IGNORA NO GIT!)
 ├── package.json              
-├── server.js                 // Ponto de Entrada do Backend (Express)
-├── authMiddleware.js         // Middleware de autenticação JWT
-└── db.js                     // Lógica de Conexão MySQL
+└── server.js                  // Ponto de Entrada do Backend (Express)
 </pre>
 
 <hr>
